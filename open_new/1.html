@@ -7,17 +7,20 @@
 </head>
 <body>
     <div id="app">
-        <p>Hello {{ name }}，用{{skill["b2e"][2]}}</p>
+        <p>Hello {{ name }}，用{{skill["b2e"][2]}}
+            {{skill["b2e"][0]}}
+        </p>
         <p>{{ live?"活著":"當機了" }}</p>
         <h3 v-html="content"></h3>
         <p v-text="music[1]"></p>
         <h2 v-text="`${age}歲`"></h2>
+        <p>{{name}}要去買,{{phone[2023][1]}}</p>
     </div>
     
     <script src="https://unpkg.com/vue"></script>
     <script>
-        // debugger
-        // console.log(Vue)
+        debugger
+        console.log(Vue)
         const app = Vue.createApp({
             data() {
                 return {
@@ -34,11 +37,24 @@
                         安安<br>
                         午安
                         </div>`,
+                        phone: {
+                        2022: ["iphon12", "iphone12pro"],
+                        2023: ["iphone13", "iphone13pro"],
+                },
                     
                 }
             },
         })
         app.mount('#app')
     </script>
+    <!-- <script>
+        Vue.createApp({
+            data(){
+                return{
+                name:'grid'
+                }
+            },
+        }).mount('#app')
+    </script> -->
 </body>
 </html>
