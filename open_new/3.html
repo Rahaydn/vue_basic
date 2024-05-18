@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <div id="app">
-        <button @click="reduce">-1</button>
+        <button @click="reduce">-</button>
         {{res}}
-        <button @click="add">+1</button>
+        <button @click="add">+</button>
         <br>
         總價:{{ parse() }}
+        美金:{{ parseDollar() }}
     </div>
 </head>
 <body>
@@ -21,7 +22,7 @@
                     res: 0,
                     count:1,
                     price:100,
-                    dollar:30
+                    total:0
                 }
             },
             methods: {
@@ -32,19 +33,20 @@
                 },
                 reduce(){
                     // this.res = this.res -1
+                    if(this.res == 0 )return
                     this.res -= this.count
-                    if(this.res == 0) return
                 },
                 parse(){
-                    console.log('asdwqxcz');
-                    return this.price * this.res
+                    // 半正確寫法
+                    // return this.price * this.res
+                    // 錯誤寫法
+                    return this.total = this.price * this.res
                     
                 },
-                // parseDollar(){
-                //     console.log('asdwqxcz');
-                //     return this.price*30
-                // }
-
+                parseDollar(){
+                    // 錯誤寫法->以後用computed
+                    return this.total/30
+                }
             },
         }).mount("#app")
     </script>
